@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ChatForm from "./ChatForm";
 import ChatList from "./ChatList";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Chat = () => {
   const [loading, setLoading] = useState(false);
@@ -28,17 +29,16 @@ const Chat = () => {
 
       setMessages(data);
       setLoading(false);
-      
     } catch (err) {
       throw new Error(err);
     }
   };
 
   const addMessage = async (content) => {
-    let userId = localStorage.getItem("userId");
+    let userId = Cookies.get("userId");
     if (!userId) {
       userId = nanoid();
-      localStorage.setItem("userId", userId);
+      Cookies.set("userId", userId);
     }
 
     const messageToAdd = {
@@ -46,8 +46,6 @@ const Chat = () => {
       userId,
       content,
     };
-
-    console.log(messageToAdd);
 
     try {
       await axios.post(

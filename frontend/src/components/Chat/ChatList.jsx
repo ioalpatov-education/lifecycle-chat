@@ -26,7 +26,7 @@ ChatList.propTypes = {
       id: PropTypes.string.isRequired,
       userId: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-    })
+    }).isRequired
   ),
 };
 
