@@ -4,9 +4,15 @@ import PropTypes from "prop-types";
 
 const ChatList = ({ messages }) => {
   const chatListRef = useRef(null);
+  const lengthRef = useRef(0);
 
   useEffect(() => {
-    chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
+    const prevMessagesLength = lengthRef.current;
+    
+    if (prevMessagesLength !== messages.length) {
+      lengthRef.current = messages.length;
+      chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const messagesList = messages.map((message) => {
