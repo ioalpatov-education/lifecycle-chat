@@ -36,22 +36,18 @@ const Chat = () => {
 
   const addMessage = async (content) => {
     let userId = Cookies.get("userId");
+
     if (!userId) {
       userId = nanoid();
       Cookies.set("userId", userId);
     }
 
-    const messageToAdd = {
-      id: nanoid(),
-      userId,
-      content,
-    };
-
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_URI}/messages`,
-        messageToAdd
-      );
+      await axios.post(`${process.env.REACT_APP_API_URI}/messages`, {
+        id: nanoid(),
+        userId,
+        content,
+      });
 
       setLoading(true);
     } catch (err) {

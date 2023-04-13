@@ -26,13 +26,13 @@
 
 .chat__message {
   width: 300px;
-  border: 1px solid #000000;
   border-radius: 10px;
   padding: 1rem;
 }
 
 .chat__text {
   margin: 0;
+  filter: invert(1) grayscale(1) contrast(9);
 }
 
 .chat__form {

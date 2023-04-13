@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
 import Cookies from "js-cookie";
+import { getColor } from "./utils";
 
 const ChatMessage = ({ message }) => {
   const { userId, content } = message;
 
+  const color = getColor(userId);
+  
   const messageStyles = {
     alignSelf: userId === Cookies.get("userId") ? "flex-end" : "flex-start",
+    backgroundColor: color,
+    filter: "brightness(90%)",
+    color: color,
   };
 
   return (
