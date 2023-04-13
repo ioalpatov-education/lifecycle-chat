@@ -6,12 +6,12 @@ import * as Yup from "yup";
 import PropTypes from "prop-types";
 
 const chatFormSchema = Yup.object({
-  message: Yup.string().required("Обязательное поле"),
+  content: Yup.string().required("Обязательное поле"),
 });
 
 const ChatForm = ({ loading, onAddMessage }) => {
   const initialValues = {
-    message: "",
+    content: "",
   };
 
   const addMessage = async (values, actions) => {
@@ -37,9 +37,9 @@ const ChatForm = ({ loading, onAddMessage }) => {
     >
       <Form className="chat__form">
         <div className="form-group">
-          <Field className="form-field" type="text" name="message" />
+          <Field className="form-field" type="text" name="content" />
           <p className="error-text">
-            <ErrorMessage name="message" />
+            <ErrorMessage name="content" />
           </p>
         </div>
         {submitBtn}
