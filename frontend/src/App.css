@@ -11,6 +11,10 @@
   gap: 2rem;
 }
 
+.shat__list-wrapper {
+  position: relative;
+}
+
 .chat__list {
   display: flex;
   overflow-y: scroll;
@@ -47,8 +51,17 @@
 
 .chat__btn {
   position: absolute !important;
+}
+
+.chat__btn--add {
   top: 5px;
   right: 5px;
+}
+
+.chat__btn--scroll {
+  bottom: 10px;
+  right: 10px;
+  background-color: #ffffff !important;
 }
 
 .chat__loading {
@@ -61,6 +74,10 @@
 .navigation-icon {
   transform: rotate(90deg);
   color: #00ce22;
+}
+
+.arrow-icon {
+  transform: rotate(90deg);
 }
 
 .error-text {

@@ -23,7 +23,7 @@ const ChatForm = ({ loading, onAddMessage }) => {
   const submitBtn = loading ? (
     <CircularProgress className="chat__loading"/>
   ) : (
-    <IconButton className="chat__btn" type="submit">
+    <IconButton className="chat__btn chat__btn--add" type="submit">
       <Navigation className="navigation-icon" />
     </IconButton>
   );
